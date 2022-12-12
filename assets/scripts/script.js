@@ -27,6 +27,7 @@ function displayUser({ name, age }) {
     <p>${age} year${age > 1 ? "s" : ""} old</p>
   </div>
 </div>
+
   `;
 }
 
@@ -38,29 +39,66 @@ function compareNames(name, searchTerm) {
   return name.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
+function shouldResolve() {
+  return Math.random() < 0.95;
+}
+
 function searchUsers(name, age) {
-  const result = [];
-  for (let i = 0; i < users.length; i++) {
-    let isIncluded = true;
-    let user = users[i];
-    if (name && !compareNames(user.name, name)) {
-      isIncluded = false;
-    }
-    if (age && user.age !== age) {
-      isIncluded = false;
-    }
-    if (isIncluded) {
-      result.push(user);
-    }
-  }
-  return result;
+  return new Promise((resolve, reject) => {
+setTimeout(() => {
+if (shouldResolve()) {
+  resolve (
+users.filter(
+  (user) => 
+  (!name || compareNames(user.name, name)) && (!age || user.age === age)
+)
+  );
+} else {
+  reject([]);
+}
+}, 3000);
+  });
+}
+
+function loading() {
+  return `<div class="loader">
+  <div class="loader-inner">
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+  </div>
+</div>`
+}
+
+function renderMessage(message) {
+  return `<div style = "color: red">${message}</div>`
 }
 
 usersContainer.innerHTML = displayUsers(users);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  usersContainer.innerHTML = displayUsers(
+  usersContainer.innerHTML = loading();
     searchUsers(e.target.name.value, +e.target.age.value)
-  );
-});
+    .then((result)=> {
+      usersContainer.innerHTML = displayUsers(result);
+    })
+    .catch((e) => {
+      usersContainer.innerHTML = renderMessage("Error Loading, Please try again"
+      );
+    });
+    });
+ 
+
