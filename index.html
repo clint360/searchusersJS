@@ -7,22 +7,72 @@
   <title>Search Prop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="assets/styles/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
 <body>
   <section id="main">
-    <section id="to-input">
-      <div class="name">
+    <form id="to-input">
+      <div class="name" style="margin: 5px;">
       <legend>Name:</legend>
       <input type="text" placeholder="Input Name">
     </div>
-      <div class="age">
+      <div class="age" style="margin: 5px;">
       <legend>Age:</legend>
       <input type="text" placeholder="Age">
     </div>
-      <div class="search"><p><i class="fa-solid fa-magnifying-glass"></i></p></div>
-    </section>
+      <button class="search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
   <section id="results">
-
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Chia Clint</h4>
+      <p>17 years old</p>
+    </div>
+  </div>
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Gaston Che </h4>
+      <p>26 years old</p>
+    </div>
+  </div>
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Chriss Godden </h4>
+      <p>23 years old </p>
+    </div>
+  </div>
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Alaric Mozzart</h4>
+      <p>18 years old </p>
+    </div>
+  </div>
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Chia Carlyle </h4>
+      <p>26 years old </p>
+    </div>
+  </div>
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Chia Patience</h4>
+      <p>51 years old </p>
+    </div>
+  </div>
+  <div class="searchresultcontainer">
+    <div class="circle"></div>
+    <div class="name-age">
+      <h4>Chia Kenneth </h4>
+      <p>63 years old </p>
+    </div>
+  </div>
   </section>
 </body>
+<script src="assets/scripts/users.js"></script>
 </html>

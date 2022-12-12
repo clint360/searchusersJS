@@ -10,13 +10,68 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 #main {
   width: 400px;
+  background: rgb(162, 124, 231);
+  padding: 20px;
+  border-radius: 3px;
 }
 
 #to-input {
   display: flex;
   width: 100%;
+}
+
+input {
+  width: 150px;
+  margin: auto;
+  border-radius: 3px;
+  border: 1px solid #000;
+  padding: 5px 10px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  padding: 5px;
+  border-radius: 4px;
+  background: rgb(8, 7, 7);
+  color: #fff;
+  height: 40px;
+  margin-top: 28px;
+}
+
+#results {
+  padding: 5px;
+}
+
+p {
+  font-size: 15px;
+}
+
+h4 {
+  font-weight: 540;
+}
+
+.searchresultcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px;
+  border-radius: 5px;
+  background: rgba(253, 253, 253, 0.534);
+  font-size: 100%;
+}
+
+.circle {
+  background: black;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 50%;
 }
