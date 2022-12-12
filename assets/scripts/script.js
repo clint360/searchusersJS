@@ -23,12 +23,16 @@ function displayUsers(persons) {
   return persons.map(displayUser).join("")
 }
 
+function compareNames(name, searchTerm) {
+  return name.toLowerCase().includes(searchTerm.toLowerCase());
+}
+
 function searchUsers (name, age) {
   const result = [];
   for(let i = 0; i < users.length; i++) {
     let isIncluded = true;
     let user = users[i]
-    if(name && user.name !== name) {
+    if(name && !compareNames(user.name, name)) {
       isIncluded = false;
     }
     if (age && user.age !==age) {
@@ -38,13 +42,14 @@ function searchUsers (name, age) {
       result.push(user);
     }
   }
-  displayUsers(result);
+  return result;
 }
 
 usersContainer.innerHTML = displayUsers(users);
 
-getElementClassName('search').addEventListener('click', () =>  {
-  var n = document.getElementById('inputname').value;
-  var a = document.getElementById('inputage').value;
-  searchUsers(n, a);
-})
+form.addEventListener('submit', (e) =>  {
+  e.preventDefault()
+  usersContainer.innerHTML = displayUsers(
+    searchUsers(e.target.name.value, +e.target.age.value)
+  );
+});
