@@ -12,5 +12,5 @@ const users = [
   {name: 'Nazar Vinitius', age: 18},
   {name: 'Chia Clive', age: 23},
   {name: 'Chia Victor', age: 51},
-  {name: 'Nchin Leonard', age: 63},
+  {name: 'Nchin Leonard', age: 1},
 ]

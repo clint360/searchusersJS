@@ -38,7 +38,13 @@ function searchUsers (name, age) {
       result.push(user);
     }
   }
-  return result;
+  displayUsers(result);
 }
 
 usersContainer.innerHTML = displayUsers(users);
+
+getElementClassName('search').addEventListener('click', () =>  {
+  var n = document.getElementById('inputname').value;
+  var a = document.getElementById('inputage').value;
+  searchUsers(n, a);
+})
